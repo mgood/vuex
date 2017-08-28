@@ -1,10 +1,15 @@
 import _Vue = require("vue");
-import { WatchOptions } from "vue";
+import { WatchOptions, PluginFunction } from "vue";
 
 // augment typings of Vue.js
 import "./vue";
 
 export * from "./helpers";
+
+export default {
+  Store,
+  install,
+}
 
 export declare class Store<S> {
   constructor(options: StoreOptions<S>);
@@ -34,7 +39,7 @@ export declare class Store<S> {
   }): void;
 }
 
-export declare function install(Vue: typeof _Vue): void;
+export declare let install: PluginFunction<never>;
 
 export interface Dispatch {
   (type: string, payload?: any, options?: DispatchOptions): Promise<any>;
